@@ -7,8 +7,8 @@
 
             <div class="col-12 col-sm-12">
                 
-                <table class="table table-hover">     
-                    <thead class="thead-dark">
+                <table class="table table-hover">
+                <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Data Cadastro</th>
@@ -16,20 +16,16 @@
                             <th scope="col">Autor</th>
                             <th scope="col">Preço</th>
                         </tr>
-                    </thead>
+                    </thead>     
+                    
                     <tbody>
-                        <?php
-                        foreach ($livros as $livro) {
-                            echo'
                             <tr>
-                            <th scope="row">'. $livro->id .'</th>
-                            <td>'. formataDataBr($livro->data_cadastro) .'</td>
-                            <td>'. $livro->nome_livro .'</td>
-                            <td>'. $livro->autor_livro .'</td>
-                            <td>'. formataMoeda($livro->preco) .'</td>
-                            </tr>';
-                        }
-                        ?>
+                                <td><?php echo $info->id ?></td>
+                                <td><?php echo $info->nome_livro ?></td>
+                                <td><?php echo $info->autor_livro ?></td>
+                                <td><?php echo formataMoeda($info->preco) ?></td>
+                                <td><?php echo formataDataBr($info->data_cadastro) ?></td>
+                            </tr>
                     </tbody>
                 </table>
                 

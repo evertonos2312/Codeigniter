@@ -41,15 +41,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/curso/index.php/site/livros">
               <span data-feather="file"></span>
-              Pedidos
+              Livros
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/curso/index.php/site/info/1">
               <span data-feather="shopping-cart"></span>
-              Produtos
+              Informações
             </a>
           </li>
           <li class="nav-item">
