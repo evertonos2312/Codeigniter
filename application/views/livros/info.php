@@ -6,8 +6,11 @@
         <section class="row">
 
             <div class="col-12 col-sm-12">
+                <?php 
+                    echo anchor('site/livros', 'Listar livros', array('title' => 'Listar livros', 'class' =>'btn btn-secondary'))
+                ?>
                 
-                <table class="table table-hover">
+                <table class="table table-hover m-topo">
                 <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
@@ -26,6 +29,11 @@
                                 <td><?php echo formataMoeda($info->preco) ?></td>
                                 <td><?php echo formataDataBr($info->data_cadastro) ?></td>
                             </tr>
+                            <tr>
+                                <td colspan="5"><?php echo $info->resumo ?></td>
+                            </tr>
+
+
                     </tbody>
                 </table>
                 

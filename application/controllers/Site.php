@@ -39,20 +39,38 @@ class Site extends CI_Controller {
 			
 			$query = $this->livros->getById($id);
 
-			echo '<pre>';
-				print_r($query);
-			// if ($query) {
-
-			// $data['titulo'] = $query->nome_livro;
-			// $data['info'] = $query;
 			
-			// $this->load->view('layout/topo', $data);
-			// $this->load->view('livros/info', $data);
-			// $this->load->view('layout/rodape', $data);
-			// } else {
-			// 	echo 'Você precisa passar uma ID válida';
+			if ($query) {
 
-			// }
+			$data['titulo'] = $query->nome_livro;
+			$data['info'] = $query;
+			
+			$this->load->view('layout/topo', $data);
+			$this->load->view('livros/info', $data);
+			$this->load->view('layout/rodape', $data);
+			} else {
+				echo 'Você precisa passar uma ID válida';
+
+			}
 		}
+	}
+
+	public function validar() {
+		$data['titulo'] = 'Biblioteca Form_Validation';
+
+		$this->load->helper('form');
+
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('nome', 'Nome', 'required|min_lenght[3]', array());
+		if ($this->form_validation->run() == TRUE) {
+			echo 'Formulário validado com sucesso';
+		} else {
+			$this->load->view('layout/topo', $data);
+			$this->load->view('formulario/validar');
+			$this->load->view('layout/rodape');
+		}
+
+		
 	}
 }

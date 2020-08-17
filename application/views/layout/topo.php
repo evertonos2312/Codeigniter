@@ -12,6 +12,11 @@
 
     <link href="<?php echo base_url('dist/bootstrap/css/dashboard.css') ?>" rel="stylesheet">
     
+    <style type="text/css">
+      .m-topo {
+        margin-top: 20px;
+      }
+    </style>
 </head>
 
 
@@ -35,40 +40,20 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <!-- <a class="nav-link" href="/codeigniter">
               <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
-            </a>
+              Pagina Inicial <span class="sr-only">(current)</span>
+            </a> -->
+            <?php
+              echo anchor('/','Principal', array('title' =>'Dashboard', 'class' => 'nav-link'))
+              ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/curso/index.php/site/livros">
-              <span data-feather="file"></span>
-              Livros
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/curso/index.php/site/info/1">
-              <span data-feather="shopping-cart"></span>
-              Informações
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Clientes
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Relatórios
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrações
-            </a>
+            <!-- <a class="nav-link" href="/codeigniter/index.php/site/livros">
+              <span data-feather="file"></span> -->
+              <?php
+              echo anchor('site/livros','Livros', array('title' =>'Livros', 'class' => 'nav-link'))
+              ?>
           </li>
         </ul>
 

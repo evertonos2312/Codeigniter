@@ -15,7 +15,7 @@ class Livros_model extends CI_Model {
 
             $this->db->select('livros.*, resumo.resumo');
             $this->db->from('livros');
-            $this->db->join('resumo', 'livros.id = resumo.id_livro');
+            $this->db->join('resumo', 'livros.id = resumo.id_livro', 'left');
 
             $this->db->where('livros.id', $id);
             $this->db->limit(1);
