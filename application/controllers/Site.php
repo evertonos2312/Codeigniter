@@ -62,7 +62,28 @@ class Site extends CI_Controller {
 
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('nome', 'Nome', 'required|min_lenght[3]', array());
+		$this->form_validation->set_rules('nome', 'NOME', 'required|min_length[3]');
+		
+		$this->form_validation->set_rules('email', 'E-mail', 'required|valid_email', array(
+			'valid_email'=>'Você deve passar um e-mail válido'
+		));
+
+		$this->form_validation->set_rules('codigo', 'Código', 'numeric', array(
+			'numeric'=> 'Você deve passar somente números!'
+		));
+
+		$this->form_validation->set_rules('senha', 'Senha', 'trim|required|min_length[6]|max_length[8]', array(
+			'required' => 'Você passar uma senha!',
+			'min_length' => 'Sua senha deve ter no mínimo 6 caracteres',
+			'max_length' => 'Sua senha deve ter no máximo 8 caracteres'
+		));
+
+		$this->form_validation->set_rules('senha2', 'Repita a Senha', 'required|matches[senha]',
+			array(
+				'required' => 'Você deve preencher o campo Repita a Senha',
+				'matches' => 'Senha não confere!'
+			));
+		
 		if ($this->form_validation->run() == TRUE) {
 			echo 'Formulário validado com sucesso';
 		} else {

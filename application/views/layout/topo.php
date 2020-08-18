@@ -55,39 +55,15 @@
               echo anchor('site/livros','Livros', array('title' =>'Livros', 'class' => 'nav-link'))
               ?>
           </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="/codeigniter/index.php/site/livros">
+              <span data-feather="file"></span> -->
+              <?php
+              echo anchor('usuarios','Lista de Usuários', array('title' =>'Lista de Usuários', 'class' => 'nav-link'))
+              ?>
+          </li>
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Relatórios salvos</span>
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Mês atual
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Midia social
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Vendas de fim de ano
-            </a>
-          </li>
-        </ul>
+       
       </div>
     </nav>
