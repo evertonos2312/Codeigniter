@@ -12,9 +12,16 @@
             
             </div>
         </section>
+
+        <div class="row">
+                <div class="col-12 col-sm-12">
+                    <?= $this->session->userdata('msg'); ?>
+                </div>
+        </div>
+
         <section class="row">
             <div class="col-12 col-sm-12">
-            <p>Lista</p>
+            
             </div>
         </section>
 </main>

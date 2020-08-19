@@ -91,7 +91,9 @@ class Site extends CI_Controller {
 			$this->load->view('formulario/validar');
 			$this->load->view('layout/rodape');
 		}
+	}
 
+	public function secao() {
 		
 	}
 }

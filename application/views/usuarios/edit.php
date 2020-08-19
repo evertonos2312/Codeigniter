@@ -23,7 +23,7 @@
                                 'name'=>'nome', 
                                 'id'=>'id_nome',
                                 'autocomplete'=>'off',
-                                'placegolde'=>'Nome'));
+                                'placeholde'=>'Nome', 'value' => $query->nome));
                             echo '</div>';
                             
                             echo '<div class="form-group">';
@@ -33,29 +33,13 @@
                                 'class'=>'form-control', 
                                 'name'=>'email', 
                                 'id'=>'id_email',
-                                'autocomplete'=>'off'));
+                                'autocomplete'=>'off', 'value' => $query->email));
+                                echo '</div>';
 
-                            echo '<div class="form-group">';    
-                            echo form_label('Senha', 'id_senha');
-                            echo form_input(array(
-                                'type'=>'password', 
-                                'class'=>'form-control', 
-                                'name'=>'senha', 
-                                'id'=>'id_senha',
-                                'autocomplete'=>'off'));
-                            echo '</div>';
-
-                            echo '<div class="form-group">';    
-                            echo form_label('Repita a Senha', 'id_senha2');
-                            echo form_input(array(
-                                'type'=>'password', 
-                                'class'=>'form-control', 
-                                'name'=>'senha2', 
-                                'id'=>'id_senha2',
-                                'autocomplete'=>'off'));
-                            echo '</div>';       
+                                echo form_hidden('id', $query->id);
                                 
-                            echo form_submit('submit', 'Cadastrar', array(
+                                
+                            echo form_submit('submit', 'Atualizar', array(
                                 'class'=>'btn btn-outline-success'
                             ));
                 
