@@ -19,7 +19,7 @@
 
     <body>
         <div class="container">
-
+            <?= $this->session->flashdata('erro_login'); ?>
             <form action="" class="form-signin" method="POST">
                 <h2 class="form-signin-heading">Acesse sua Conta</h2>
                 <label for="inputEmail" class="sr-only">Endereço de E-mail</label>

@@ -5,13 +5,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="">
-    <title><?php echo $titulo ?></title>
+    <title><?= $titulo_site ?></title>
         
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('dist/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
 
     <link href="<?php echo base_url('dist/bootstrap/css/dashboard.css') ?>" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
     
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <style type="text/css">
       .m-topo {
         margin-top: 20px;
@@ -29,7 +33,9 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sair</a>
+                <?php
+                  echo anchor('login/sair','Sair', array('title' =>'Sair', 'class' => 'nav-link'));
+                ?>
             </li>
         </ul>
     </nav>
@@ -40,24 +46,16 @@
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <!-- <a class="nav-link" href="/codeigniter">
-              <span data-feather="home"></span>
-              Pagina Inicial <span class="sr-only">(current)</span>
-            </a> -->
             <?php
               echo anchor('/','Principal', array('title' =>'Dashboard', 'class' => 'nav-link'))
               ?>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link" href="/codeigniter/index.php/site/livros">
-              <span data-feather="file"></span> -->
               <?php
-              echo anchor('site/livros','Livros', array('title' =>'Livros', 'class' => 'nav-link'))
+              echo anchor('livros','Livros', array('title' =>'Livros', 'class' => 'nav-link'))
               ?>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link" href="/codeigniter/index.php/site/livros">
-              <span data-feather="file"></span> -->
               <?php
               echo anchor('usuarios','Lista de Usuários', array('title' =>'Lista de Usuários', 'class' => 'nav-link'))
               ?>

@@ -4,23 +4,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Livros_model extends CI_Model {
 
-    public function listarLivros() {
-        // $this->db->where('id');
-        $query = $this->db->get('livros');
-        return $query->result();
+    // Listar livros cadastrados
+    public function listarLivros(){
+        return $this->db->get('livros')->result();
+      }
+
+    //Cadastrar Livros
+    public function cadastrarLivro($dados=NULL){
+        if (is_array($dados)) {
+            $this->db->insert('livros', $dados);
+        }
+    }
+    //Get livro por ID
+    public function pegaLivroID($id=NULL){
+        if ($id) {
+            $this->db->where('id', $id);
+            $this->db->limit(1);
+            return $this->db->get('livros')->row();
+        }
     }
 
-    public function getById($id=NULL) {
-        if($id) {
+    //Atualizar um livro
+    public function atualizaLivro($dados=NULL, $condicao=NULL) {
+        if (is_array($dados) && is_array($condicao)) {
+            $this->db->update('livros', $dados, $condicao);
+        }
+    }
 
-            $this->db->select('livros.*, resumo.resumo');
-            $this->db->from('livros');
-            $this->db->join('resumo', 'livros.id = resumo.id_livro', 'left');
-
-            $this->db->where('livros.id', $id);
-            $this->db->limit(1);
-            $query = $this->db->get();
-            return $query->row();
+    //Apagar um livro
+    public function apagarLivro($id=NULL){
+        if ($id) {
+            $this->db->delete('livros', ['id' => $id]);
         }
     }
 }

@@ -22,4 +22,17 @@
                 $this->db->update('usuarios', $dados, $condicao);
             }
         }
+
+        public function getUsuarios(){
+            return $this->db->get('usuarios')->result();
+        }
+
+        public function doDelete($condicao=NULL){
+            if($condicao) {
+                $this->db->delete('usuarios', $condicao);
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
