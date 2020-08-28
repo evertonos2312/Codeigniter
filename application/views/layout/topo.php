@@ -20,6 +20,11 @@
       .m-topo {
         margin-top: 20px;
       }
+
+      .hide {
+        display: none;
+      }
+
     </style>
 </head>
 

@@ -41,8 +41,8 @@ class Livros extends CI_Controller {
 			$config['allowed_types'] = 'gif|jpg|jpeg|png';
 			$config['max_size'] = 2048;
 			$config['encrypt_name'] = TRUE;
-
 			$this->load->library('upload', $config);
+
 			if (!$this->upload->do_upload('foto_livro')) {
 				$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">'. $this->upload->display_errors()  .'</div>');
 			redirect('livros/adicionar', 'refresh');
@@ -96,11 +96,29 @@ class Livros extends CI_Controller {
 
 		if ($this->form_validation->run() == TRUE) {
 
+			$nome_imagem = NULL;
+
+			$config['upload_path'] = './upload/';
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size'] = 2048;
+			$config['encrypt_name'] = TRUE;
+			$this->load->library('upload', $config);
+
+			if ( $this->upload->do_upload('foto_livro')) {
+				$nome_imagem = $this->upload->data('file_name');
+
+			} 
+
+			
 			$inputEditar['titulo'] = $this->input->post('titulo');
 			$inputEditar['autor'] = $this->input->post('autor');
 			$inputEditar['preco'] = $this->input->post('preco');
 			$inputEditar['resumo'] = $this->input->post('resumo');
 			$inputEditar['ativo'] = $this->input->post('ativo');
+
+			if ($nome_imagem) {
+				$inputEditar['img'] = $nome_imagem;
+			}
 
 			$this->livros->atualizaLivro($inputEditar, ['id' => $this->input->post('id_livro')]);
 			$this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert">Livro atualizado com sucesso.</div>');

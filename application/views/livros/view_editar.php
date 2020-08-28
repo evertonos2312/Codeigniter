@@ -18,7 +18,7 @@
 
 <div class="col-6 col-sm-6">
     
-    <?= form_open() ?>
+    <?= form_open_multipart() ?>
         <div class="form-group"> 
             <?= form_label('Título') ?>
             <?= form_input([
@@ -27,6 +27,7 @@
                 'name'          => 'titulo',
                 'placeholder'   => 'Titulo do Livro',
                 'value'         => $query->titulo]) ?>
+            
 
         </div>
         <div class="form-group"> 
@@ -56,8 +57,17 @@
         <div class="form-group"> 
             <?= form_label('Resumo') ?>
             <?= form_textarea('resumo', $query->resumo, ['class' => 'form-control']); ?>
-
         </div>
+
+        <div class="form-group">
+            <img src="<?= base_url('upload/' . $query->img)?>" alt="<?= $query->titulo ?>" class="img-fluid img-livro-ismweb" style="width: 250px;">
+        </div> 
+        <div class="form-group"> 
+            <button type="button" class="btn btn-outline-secondary mb-2 btn-trocar-imagem"><i class="fa fa-refresh"></i> Imagem</button>
+            <button type="button" class="btn btn-outline-danger mb-2 btn-cancelar-imagem"><i class="fa fa-undo"></i> Cancelar</button>
+            <input type="file" name="foto_livro" class="form-control input-file-form-livros-ismweb hide" required="" disabled="">
+        </div>
+
         <?= form_hidden('id_livro', $query->id); ?>
         <?= form_submit('submit', 'Atualizar livro', ['class' => 'btn btn-success']); ?>
         

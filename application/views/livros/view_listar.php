@@ -33,7 +33,7 @@
                     <tbody>
                         <?php foreach($livros as $livro) { ?>
                             <tr>
-                                <td scope="row"><img src="<?= base_url('upload/' . $livro->img)?>" alt="<?= $livro->titulo ?>" class="img-thumbnail" style="width: 50px;"></td>
+                                <td scope="row"><img src="<?= base_url('upload/' . $livro->img)?>" alt="<?= $livro->titulo ?>" class="img-thumbnail" style="width: 100px;"></td>
                                 <td class="text-center"><?= $livro->titulo ?></td>
                                 <td class="text-center"><?= $livro->autor ?></td>
                                 <td class="text-center"><?= $livro->preco ?></td>

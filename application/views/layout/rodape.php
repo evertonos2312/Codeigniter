@@ -5,6 +5,8 @@
         <script type="text/javascript">
             
             $(document).ready( function () {
+
+
             $('#table_isweb_listar').DataTable({
                 language: {
                     "sEmptyTable": "Nenhum registro encontrado",
@@ -44,7 +46,19 @@
                         }
                     }
                 }
-            }); 
+            });
+
+            $('.btn-trocar-imagem').on('click', function(){
+                $('.input-file-form-livros-ismweb').removeClass('hide')
+                $('.input-file-form-livros-ismweb').prop('disabled', false)
+                $('.img-livro-ismweb').addClass('hide');
+            })
+            $('.btn-cancelar-imagem').on('click', function(){
+                $('.input-file-form-livros-ismweb').prop('disabled', true)
+                $('.img-livro-ismweb').removeClass('hide');
+                $('.input-file-form-livros-ismweb').addClass('hide')
+            })
+
         });
                    
         </script>
